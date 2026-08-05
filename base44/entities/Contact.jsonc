@@ -1,0 +1,46 @@
+{
+  "name": "Contact",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "\u304a\u540d\u524d"
+    },
+    "email": {
+      "type": "string",
+      "title": "\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9",
+      "format": "email"
+    },
+    "inquiry_type": {
+      "type": "string",
+      "enum": [
+        "\u30db\u30fc\u30e0\u30da\u30fc\u30b8\u5236\u4f5c",
+        "\u30db\u30fc\u30e0\u30da\u30fc\u30b8\u4fee\u6b63",
+        "WordPress",
+        "SEO",
+        "\u305d\u306e\u4ed6"
+      ],
+      "title": "\u554f\u3044\u5408\u308f\u305b\u7a2e\u5225"
+    },
+    "message": {
+      "type": "string",
+      "title": "\u304a\u554f\u3044\u5408\u308f\u305b\u5185\u5bb9"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "\u65b0\u898f",
+        "\u5bfe\u5fdc\u4e2d",
+        "\u5bfe\u5fdc\u6e08"
+      ],
+      "title": "\u30b9\u30c6\u30fc\u30bf\u30b9",
+      "default": "\u65b0\u898f"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "inquiry_type",
+    "message"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Work",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "\u4f5c\u54c1\u540d"
+    },
+    "slug": {
+      "type": "string",
+      "title": "\u30b9\u30e9\u30c3\u30b0"
+    },
+    "summary": {
+      "type": "string",
+      "title": "\u6982\u8981"
+    },
+    "overview": {
+      "type": "string",
+      "title": "\u8a73\u7d30\u6982\u8981"
+    },
+    "role": {
+      "type": "string",
+      "title": "\u62c5\u5f53\u7bc4\u56f2"
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "\u4f7f\u7528\u6280\u8853"
+    },
+    "period": {
+      "type": "string",
+      "title": "\u5236\u4f5c\u671f\u9593"
+    },
+    "purpose": {
+      "type": "string",
+      "title": "\u5236\u4f5c\u76ee\u7684"
+    },
+    "highlights": {
+      "type": "string",
+      "title": "\u5de5\u592b\u3057\u305f\u30dd\u30a4\u30f3\u30c8"
+    },
+    "thumbnail_image": {
+      "type": "string",
+      "title": "\u30b5\u30e0\u30cd\u30a4\u30eb\u753b\u50cf",
+      "format": "uri"
+    },
+    "category": {
+      "type": "string",
+      "title": "\u30ab\u30c6\u30b4\u30ea\u30fc",
+      "default": "Web\u5236\u4f5c"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u516c\u958b\u65e5"
+    },
+    "is_self_made": {
+      "type": "boolean",
+      "title": "\u81ea\u4e3b\u5236\u4f5c",
+      "default": false
+    },
+    "display_order": {
+      "type": "number",
+      "title": "\u8868\u793a\u9806",
+      "default": 0
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "summary",
+    "thumbnail_image",
+    "published_date"
+  ]
+}

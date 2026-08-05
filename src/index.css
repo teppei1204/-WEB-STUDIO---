@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Sumi & Kinari palette */
+    --kinari: 40 33% 94%;
+    --sumi: 0 0% 10%;
+    --ai: 215 51% 25%;
+    --shu: 9 78% 55%;
+    --stone: 40 11% 89%;
+    --white: 0 0% 100%;
+    --ai-soft: 215 30% 92%;
+
+    --background: var(--kinari);
+    --foreground: var(--sumi);
+    --card: var(--white);
+    --card-foreground: var(--sumi);
+    --popover: var(--white);
+    --popover-foreground: var(--sumi);
+    --primary: var(--sumi);
+    --primary-foreground: var(--white);
+    --secondary: var(--stone);
+    --secondary-foreground: var(--sumi);
+    --muted: var(--stone);
+    --muted-foreground: 0 0% 40%;
+    --accent: var(--ai);
+    --accent-foreground: var(--white);
+    --destructive: 0 62% 40%;
+    --destructive-foreground: var(--white);
+    --border: var(--stone);
+    --input: var(--stone);
+    --ring: var(--ai);
+    --radius: 0.125rem;
+
+    --font-heading: 'Noto Serif JP', ui-serif, Georgia, serif;
+    --font-body: 'Inter', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Noto Serif JP', ui-serif, Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  }
+
+  /* ─────────────────────────────────────────
+     THEME 2 — DIGITAL LABORATORY
+     Technology × Experiment : dark, grid, mono
+     ───────────────────────────────────────── */
+  [data-theme="lab"] {
+    --kinari: 213 29% 6%;
+    --sumi: 210 25% 93%;
+    --ai: 187 85% 53%;
+    --stone: 213 22% 13%;
+    --white: 213 29% 6%;
+    --ai-soft: 213 20% 16%;
+    --shu: 199 89% 48%;
+
+    --background: 213 29% 6%;
+    --foreground: 210 25% 93%;
+    --card: 213 25% 11%;
+    --card-foreground: 210 25% 93%;
+    --popover: 213 25% 11%;
+    --popover-foreground: 210 25% 93%;
+    --primary: 210 25% 93%;
+    --primary-foreground: 213 29% 6%;
+    --secondary: 213 20% 16%;
+    --secondary-foreground: 210 25% 93%;
+    --muted: 213 20% 16%;
+    --muted-foreground: 210 15% 60%;
+    --accent: 187 85% 53%;
+    --accent-foreground: 213 29% 6%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 25% 93%;
+    --border: 213 20% 22%;
+    --input: 213 20% 22%;
+    --ring: 187 85% 53%;
+
+    --font-heading: 'JetBrains Mono', 'Noto Sans JP', ui-monospace, monospace;
+    --font-display: 'JetBrains Mono', 'Noto Sans JP', ui-monospace, monospace;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  }
+
+  [data-theme="lab"] body {
+    background-image:
+      linear-gradient(hsl(187 85% 53% / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(187 85% 53% / 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    line-height: 1.75;
+  }
+
+  ::selection {
+    background-color: hsl(var(--ai));
+    color: hsl(var(--white));
+  }
+
+  /* Focus visibility */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid hsl(var(--ai));
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Thin structural line */
+  .k-line {
+    background-color: hsl(var(--sumi) / 0.15);
+  }
+
+  /* Ghost button — thin border, quiet hover */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border px-7 py-3 text-sm tracking-widest font-body transition-all duration-300;
+    border-color: hsl(var(--sumi) / 0.4);
+    color: hsl(var(--sumi));
+    background: transparent;
+  }
+  .btn-ghost:hover {
+    background-color: hsl(var(--sumi));
+    color: hsl(var(--white));
+    border-color: hsl(var(--sumi));
+  }
+
+  .btn-ghost-ai {
+    @apply inline-flex items-center justify-center gap-2 border px-7 py-3 text-sm tracking-widest font-body transition-all duration-300;
+    border-color: hsl(var(--ai) / 0.5);
+    color: hsl(var(--ai));
+    background: transparent;
+  }
+  .btn-ghost-ai:hover {
+    background-color: hsl(var(--ai));
+    color: hsl(var(--white));
+    border-color: hsl(var(--ai));
+  }
+
+  .btn-solid {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3 text-sm tracking-widest font-body transition-all duration-300;
+    background-color: hsl(var(--sumi));
+    color: hsl(var(--white));
+  }
+  .btn-solid:hover {
+    background-color: hsl(var(--shu));
+  }
+
+  /* Section number label */
+  .section-index {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: hsl(var(--ai));
+  }
+
+  /* Large low-opacity background kanji */
+  .bg-kanji {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    color: hsl(var(--sumi));
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Warm gradient emphasis — 藍 → 朱 */
+  .accent-grad {
+    background: linear-gradient(120deg, hsl(var(--ai)), hsl(var(--shu)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* DIGITAL LAB — component treatments */
+  [data-theme="lab"] .btn-ghost,
+  [data-theme="lab"] .btn-ghost-ai,
+  [data-theme="lab"] .btn-solid {
+    font-family: var(--font-mono);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+  [data-theme="lab"] .section-index {
+    font-family: var(--font-mono);
+    letter-spacing: 0.2em;
+  }
+  [data-theme="lab"] .bg-kanji {
+    display: none;
+  }
+  [data-theme="lab"] .k-line {
+    background-color: transparent;
+    border-top: 1px dashed hsl(187 85% 53% / 0.3);
+  }
+}
+
+@layer utilities {
+  .tracking-wider-2 {
+    letter-spacing: 0.2em;
+  }
+  .tracking-widest-2 {
+    letter-spacing: 0.3em;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

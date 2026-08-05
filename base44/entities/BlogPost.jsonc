@@ -1,0 +1,65 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "\u30bf\u30a4\u30c8\u30eb"
+    },
+    "slug": {
+      "type": "string",
+      "title": "\u30b9\u30e9\u30c3\u30b0"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "TECH",
+        "LIFE"
+      ],
+      "title": "\u30ab\u30c6\u30b4\u30ea\u30fc",
+      "default": "TECH"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "\u30bf\u30b0"
+    },
+    "excerpt": {
+      "type": "string",
+      "title": "\u6982\u8981"
+    },
+    "content": {
+      "type": "string",
+      "title": "\u672c\u6587\uff08\u30de\u30fc\u30af\u30c0\u30a6\u30f3\uff09"
+    },
+    "eyecatch_image": {
+      "type": "string",
+      "title": "\u30a2\u30a4\u30ad\u30e3\u30c3\u30c1\u753b\u50cf",
+      "format": "uri"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u516c\u958b\u65e5"
+    },
+    "author": {
+      "type": "string",
+      "title": "\u8457\u8005",
+      "default": "\u856a\u6728\u9244\u5e73"
+    },
+    "featured": {
+      "type": "boolean",
+      "title": "\u6ce8\u76ee\u8a18\u4e8b",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "category",
+    "content",
+    "published_date"
+  ]
+}
