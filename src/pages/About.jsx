@@ -8,6 +8,8 @@ import { useSEO, StructuredData } from "@/components/SEO";
 
 const PROFILE_IMG =
   "https://media.base44.com/images/public/6a707359147785c39fbc81e6/a7156c8ff_generated_76ff3d13.png";
+const MASCOT_IMG =
+  "https://media.base44.com/images/public/6a707359147785c39fbc81e6/1dfbfda2a_kabuki.png";
 
 const SKILLS = [
   { name: "HTML / CSS", desc: "レスポンシブ対応を含む、構造的で保守しやすいWebサイトの構築。" },
@@ -78,6 +80,25 @@ export default function About() {
                 <p className="text-xs tracking-widest-2 text-sumi/50 mt-2">
                   TEPPEI KABUKI / Engineer / Web Creator
                 </p>
+
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="w-20 h-20 shrink-0 bg-card border border-sumi/15 p-1.5">
+                    <Image
+                      src={MASCOT_IMG}
+                      alt="WEB STUDIO KABUKI スタジオキャラクター"
+                      className="w-full h-full"
+                      fittingType="fit"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-heading text-[0.65rem] tracking-widest-2 text-ai">
+                      STUDIO CHARACTER
+                    </p>
+                    <p className="text-xs text-sumi/50 mt-1 leading-relaxed">
+                      WEB STUDIO KABUKI の名刺画像
+                    </p>
+                  </div>
+                </div>
               </Reveal>
             </div>
 

@@ -6,8 +6,8 @@ import { useTheme } from "@/lib/ThemeContext";
 
 const PROFILE_IMG =
   "https://media.base44.com/images/public/6a707359147785c39fbc81e6/a7156c8ff_generated_76ff3d13.png";
-const HERO_IMG =
-  "https://media.base44.com/images/public/6a707359147785c39fbc81e6/608416608_generated_99e71e22.png";
+const MASCOT_IMG =
+  "https://media.base44.com/images/public/6a707359147785c39fbc81e6/1dfbfda2a_kabuki.png";
 
 export default function Hero() {
   const { theme } = useTheme();
@@ -90,12 +90,12 @@ export default function Hero() {
           <div className="lg:col-span-5">
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-full h-full border border-sumi/15" />
-              <div className="relative aspect-[4/5] overflow-hidden bg-stone">
+              <div className="relative aspect-[4/5] overflow-hidden bg-card">
                 <Image
-                  src={HERO_IMG}
-                  alt="ミニマルなワークスペース — WEB STUDIO KABUKI"
-                  className="w-full h-full object-cover"
-                  fittingType="fill"
+                  src={MASCOT_IMG}
+                  alt="WEB STUDIO KABUKI のキャラクター — 蕪木鉄平"
+                  className="w-full h-full"
+                  fittingType="fit"
                 />
                 <span className="absolute top-4 right-4 w-3 h-3 bg-shu rotate-45" />
               </div>
