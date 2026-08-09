@@ -5,7 +5,7 @@ import { Image } from "@/components/ui/image";
 import { useTheme } from "@/lib/ThemeContext";
 
 const PROFILE_IMG =
-  "https://media.base44.com/images/public/6a707359147785c39fbc81e6/a7156c8ff_generated_76ff3d13.png";
+  "https://media.base44.com/images/public/6a707359147785c39fbc81e6/6c58142c5_HP.png";
 const MASCOT_IMG =
   "https://media.base44.com/images/public/6a707359147785c39fbc81e6/1dfbfda2a_kabuki.png";
 

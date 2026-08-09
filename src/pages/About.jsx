@@ -7,7 +7,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { useSEO, StructuredData } from "@/components/SEO";
 
 const PROFILE_IMG =
-  "https://media.base44.com/images/public/6a707359147785c39fbc81e6/a7156c8ff_generated_76ff3d13.png";
+  "https://media.base44.com/images/public/6a707359147785c39fbc81e6/6c58142c5_HP.png";
 const MASCOT_IMG =
   "https://media.base44.com/images/public/6a707359147785c39fbc81e6/1dfbfda2a_kabuki.png";
 
@@ -70,6 +70,14 @@ export default function About() {
                       alt="蕪木鉄平のプロフィール写真"
                       className="w-full h-full object-cover"
                       fittingType="fill"
+                    />
+                    <span
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, transparent 55%, hsl(var(--kinari) / 0.18) 100%)",
+                      }}
+                      aria-hidden="true"
                     />
                   </div>
                 </div>
