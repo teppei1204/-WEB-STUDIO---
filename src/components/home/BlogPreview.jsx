@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
-import { base44 } from "@/api/base44Client";
+import { listPosts } from "@/lib/contentApi";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 
@@ -10,9 +10,8 @@ export default function BlogPreview() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    base44.entities.BlogPost
-      .list("-published_date", 3)
+    useEffect(() => {
+    listPosts(3)
       .then((data) => setPosts(data || []))
       .catch(() => setPosts([]))
       .finally(() => setLoading(false));

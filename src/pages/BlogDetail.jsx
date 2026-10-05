@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import ReactMarkdown from "react-markdown";
-import { base44 } from "@/api/base44Client";
+import { getPostBySlug, listPosts } from "@/lib/contentApi";
 import Reveal from "@/components/Reveal";
 import { useSEO } from "@/components/SEO";
 
@@ -15,15 +15,12 @@ export default function BlogDetail() {
 
   useEffect(() => {
     setLoading(true);
-    base44.entities.BlogPost
-      .filter({ slug }, undefined, 1)
-      .then(async (data) => {
-        const p = (data && data[0]) || null;
+        getPostBySlug(slug)
+      .then(async (p) => {
+
         setPost(p);
         if (p) {
-          const all = await base44.entities.BlogPost
-            .list("-published_date", 20)
-            .catch(() => []);
+          const all = await listPosts(20).catch(() => []);
           const rel = (all || [])
             .filter((x) => x.id !== p.id && x.category === p.category)
             .slice(0, 3);

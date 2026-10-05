@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import { Image } from "@/components/ui/image";
-import { base44 } from "@/api/base44Client";
+import { listPosts } from "@/lib/contentApi";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import { useSEO } from "@/components/SEO";
@@ -19,9 +19,8 @@ export default function Blog() {
   const [category, setCategory] = useState("ALL");
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    base44.entities.BlogPost
-      .list("-published_date", 50)
+    useEffect(() => {
+    listPosts(50)
       .then((data) => setPosts(data || []))
       .catch(() => setPosts([]))
       .finally(() => setLoading(false));
