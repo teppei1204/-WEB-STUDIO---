@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
-import { base44 } from "@/api/base44Client";
+import { listWorks } from "@/lib/contentApi";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 
@@ -11,8 +11,7 @@ export default function WorksPreview() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    base44.entities.Work
-      .list("-published_date", 4)
+    listWorks(4)
       .then((data) => setWorks(data || []))
       .catch(() => setWorks([]))
       .finally(() => setLoading(false));
