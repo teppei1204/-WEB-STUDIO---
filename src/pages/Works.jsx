@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Image } from "@/components/ui/image";
-import { base44 } from "@/api/base44Client";
+import { listWorks } from "@/lib/contentApi";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import { useSEO } from "@/components/SEO";
@@ -20,8 +20,7 @@ export default function Works() {
   const categories = ["ALL", "Web制作", "WordPress", "改善", "動画編集", "バナー制作", "自主制作"];
 
   useEffect(() => {
-    base44.entities.Work
-      .list("-published_date", 50)
+    listWorks(50)
       .then((data) => setWorks(data || []))
       .catch(() => setWorks([]))
       .finally(() => setLoading(false));
